@@ -65,7 +65,6 @@ class FishesTableViewController: UITableViewController, UISearchResultsUpdating,
         guard var text = searchController.searchBar.text
         else { return }
         text = text.replacingOccurrences(of: " ", with: "-")
-        print(text)
         
         let jsonURL = "https:www.fishwatch.gov/api/species/\(text)"
         
@@ -73,7 +72,6 @@ class FishesTableViewController: UITableViewController, UISearchResultsUpdating,
             switch result {
             case .success(let data):
                 self.fishes = data
-                print(data)
                 self.tableView.reloadData()
             case .failure(let error):
                 print(error)
